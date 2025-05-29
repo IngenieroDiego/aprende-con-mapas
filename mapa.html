@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende con Mapas - Mapa Interactivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #mapa { 
+            height: 500px; 
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera con logo y navegación -->
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <h1>Aprende con Mapas</h1>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyLDJDNy41LDIgMy45LDUuNSAzLjksMTBjMCw1LjIsNyw5LjQsNy45LDEwYzAuNC0wLjMsOC4xLTQuOCw4LjEtMTBDMTkuOSw1LjUsMTYuNSwyLDEyLDJNMTIsMTYuNWMtMy42LDAtNi41LTIuOS02LjUtNi41UzguNCwzLjUsMTIsMy41czYuNSwyLjksNi41LDYuNVMxNS42LDE2LjUsMTIsMTYuNU0xMiw2Yy0yLjUsMC00LjUsMi00LjUsNC41UzkuNSwxNSwxMiwxNXM0LjUtMiw0LjUtNC41UzE0LjUsNiwxMiw2Ii8+PC9zdmc+" alt="Logo" class="logo-img">
+            </div>
+            <nav class="navegacion">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="mapa.html" class="activo">Mapa Interactivo</a></li>
+                    <li><a href="#">Recursos</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal del mapa -->
+    <main class="contenedor">
+        <section class="mapa-interactivo">
+            <h2>Mapa Histórico Interactivo</h2>
+            
+            <!-- Panel de controles -->
+            <div class="controles-mapa">
+                <div class="filtros">
+                    <div class="filtro-grupo">
+                        <label for="epoca">Época:</label>
+                        <select id="epoca" class="selector">
+                            <option value="todas">Todas las épocas</option>
+                            <option value="antigua">Edad Antigua</option>
+                            <option value="media">Edad Media</option>
+                            <option value="moderna">Edad Moderna</option>
+                            <option value="contemporanea">Edad Contemporánea</option>
+                        </select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label for="region">Región:</label>
+                        <select id="region" class="selector">
+                            <option value="todas">Todas las regiones</option>
+                            <option value="europa">Europa</option>
+                            <option value="america">América</option>
+                            <option value="asia">Asia</option>
+                            <option value="africa">África</option>
+                            <option value="oceania">Oceanía</option>
+                        </select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label for="tema">Tema:</label>
+                        <select id="tema" class="selector">
+                            <option value="todos">Todos los temas</option>
+                            <option value="politico">Político</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="economico">Económico</option>
+                            <option value="militar">Militar</option>
+                        </select>
+                    </div>
+                    <button id="aplicar-filtros" class="boton boton-secundario">Aplicar Filtros</button>
+                </div>
+                
+                <!-- Barra de búsqueda -->
+                <div class="busqueda">
+                    <input type="text" id="buscar-mapa" placeholder="Buscar eventos, lugares o personajes...">
+                    <button class="boton boton-primario">Buscar</button>
+                </div>
+            </div>
+            
+            <!-- Mapa interactivo (Leaflet) -->
+            <div id="mapa"></div>
+            
+            <!-- Línea de tiempo simulada -->
+            <div class="linea-tiempo">
+                <h3>Línea de tiempo</h3>
+                <div class="epocas">
+                    <button class="epoca-btn" data-epoca="antigua">Edad Antigua</button>
+                    <button class="epoca-btn" data-epoca="media">Edad Media</button>
+                    <button class="epoca-btn" data-epoca="moderna">Edad Moderna</button>
+                    <button class="epoca-btn" data-epoca="contemporanea">Edad Contemporánea</button>
+                </div>
+            </div>
+            
+            <!-- Botón de exportación -->
+            <div class="acciones-mapa">
+                <button id="exportar-mapa" class="boton boton-exportar">Exportar Mapa</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pie-pagina">
+        <div class="contenedor">
+            <p>&copy; 2023 Aprende con Mapas. Todos los derechos reservados.</p>
+            <div class="enlaces-footer">
+                <a href="#">Términos de servicio</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Inicialización básica del mapa (se moverá a script.js en la implementación final)
+        document.addEventListener('DOMContentLoaded', function() {
+            var mapa = L.map('mapa').setView([30, 0], 2);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapa);
+            
+            // Marcador de ejemplo
+            var marcador = L.marker([51.505, -0.09]).addTo(mapa)
+                .bindPopup("<b>Londres</b><br>Capital del Imperio Británico en el siglo XIX.")
+                .openPopup();
+        });
+    </script>
+</body>
+</html>

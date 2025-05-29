@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende con Mapas - Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header class="cabecera">
+        <div class="contenedor">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png" alt="Logo" class="logo-img">
+                <h1>Aprende con Mapas</h1>
+            </div>
+            <nav class="navegacion">
+                <ul>
+                    <li><a href="index.html" class="activo"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="mapa.html"><i class="fas fa-map"></i> Mapa Interactivo</a></li>
+                    <li><a href="#" id="recursos-btn"><i class="fas fa-book"></i> Recursos</a></li>
+                    <li><a href="#" id="acerca-btn"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+                </ul>
+            </nav>
+            <button class="menu-movil"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="contenedor">
+            <h2>Explora la historia a través de mapas interactivos</h2>
+            <p>Descubre cómo los eventos históricos moldearon el mundo que conocemos hoy</p>
+            <a href="mapa.html" class="boton boton-primario"><i class="fas fa-map-marked-alt"></i> Entrar al mapa interactivo</a>
+        </div>
+    </section>
+
+    <section class="caracteristicas">
+        <div class="contenedor">
+            <h3>Nuestras herramientas</h3>
+            <div class="grid-caracteristicas">
+                <div class="caracteristica">
+                    <div class="icono"><i class="fas fa-globe-americas"></i></div>
+                    <h4>Visualiza</h4>
+                    <p>Explora mapas históricos interactivos con capas de información detallada.</p>
+                </div>
+                <div class="caracteristica">
+                    <div class="icono"><i class="fas fa-edit"></i></div>
+                    <h4>Crea</h4>
+                    <p>Diseña tus propios mapas personalizados con eventos y anotaciones.</p>
+                </div>
+                <div class="caracteristica">
+                    <div class="icono"><i class="fas fa-file-export"></i></div>
+                    <h4>Exporta</h4>
+                    <p>Guarda y comparte tus mapas en múltiples formatos para presentaciones.</p>
+                </div>
+                <div class="caracteristica">
+                    <div class="icono"><i class="fas fa-history"></i></div>
+                    <h4>Línea de tiempo</h4>
+                    <p>Observa cómo cambian las fronteras y culturas a través del tiempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ejemplos">
+        <div class="contenedor">
+            <h3>Explora estos ejemplos históricos</h3>
+            <div class="grid-ejemplos">
+                <div class="ejemplo" data-epoca="antigua" data-ubicacion="41.9028,12.4964">
+                    <img src="Mapa del Imperio Romano en 117 d.C.png" alt="Imperio Romano">
+                    <h4>Imperio Romano</h4>
+                    <p>Máxima extensión en el 117 d.C.</p>
+                    <button class="boton boton-secundario ver-mapa" data-epoca="antigua" data-ubicacion="41.9028,12.4964" data-zoom="4"><i class="fas fa-map-marker-alt"></i> Ver en mapa</button>
+                </div>
+                <div class="ejemplo" data-epoca="media" data-ubicacion="51.5074,-0.1278">
+                    <img src="Europa Medieval.png" alt="Europa Medieval">
+                    <h4>Europa Medieval</h4>
+                    <p>Mapa político del año 1200</p>
+                    <button class="boton boton-secundario ver-mapa" data-epoca="media" data-ubicacion="51.5074,-0.1278" data-zoom="4"><i class="fas fa-map-marker-alt"></i> Ver en mapa</button>
+                </div>
+                <div class="ejemplo" data-epoca="moderna" data-ubicacion="48.8566,2.3522">
+                    <img src="Revolución Francesa.png" alt="Revolución Francesa">
+                    <h4>Revolución Francesa</h4>
+                    <p>Europa en 1789</p>
+                    <button class="boton boton-secundario ver-mapa" data-epoca="moderna" data-ubicacion="48.8566,2.3522" data-zoom="4"><i class="fas fa-map-marker-alt"></i> Ver en mapa</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pie-pagina">
+        <div class="contenedor">
+            <p>&copy; 2025 Aprende con Mapas. Todos los derechos reservados.</p>
+            <div class="enlaces-footer">
+                <a href="#"><i class="fas fa-file-contract"></i> Términos</a>
+                <a href="#"><i class="fas fa-lock"></i> Privacidad</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contacto</a>
+                <a href="https://github.com/IngenieroDiego/aprende-con-mapas" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <div id="modal-contenido"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

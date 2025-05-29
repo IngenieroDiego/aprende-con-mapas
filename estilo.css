@@ -1,0 +1,608 @@
+:root {
+    --color-primario: #3498db;
+    --color-secundario: #2ecc71;
+    --color-accion: #e67e22;
+    --color-texto: #2c3e50;
+    --color-fondo: #f9f9f9;
+    --color-borde: #ddd;
+    --sombra: 0 2px 10px rgba(0,0,0,0.1);
+    --radio-borde: 8px;
+    --transicion: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    overflow-x: hidden;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Cabecera */
+.cabecera {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 30px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.navegacion ul {
+    display: flex;
+    list-style: none;
+}
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radio-borde);
+    transition: var(--transicion);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navegacion a:hover, .navegacion a.activo {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.menu-movil {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    color: white;
+    text-align: center;
+    padding: 5rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/1200px-World_map_blank_without_borders.svg.png') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero > .contenedor {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botones */
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--radio-borde);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transicion);
+    gap: 8px;
+}
+
+.boton-primario {
+    background-color: var(--color-accion);
+    color: white;
+}
+
+.boton-primario:hover {
+    background-color: #d35400;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.boton-secundario {
+    background-color: white;
+    color: var(--color-primario);
+    border: 1px solid var(--color-primario);
+}
+
+.boton-secundario:hover {
+    background-color: var(--color-primario);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.boton-exportar {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.boton-exportar:hover {
+    background-color: #27ae60;
+    transform: translateY(-3px);
+}
+
+/* Características */
+.caracteristicas {
+    padding: 4rem 0;
+}
+
+.caracteristicas h3 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: var(--color-primario);
+}
+
+.grid-caracteristicas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.caracteristica {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra);
+    text-align: center;
+    transition: var(--transicion);
+}
+
+.caracteristica:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.caracteristica .icono {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primario);
+}
+
+.caracteristica h4 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Ejemplos */
+.ejemplos {
+    padding: 3rem 0;
+    background-color: #f0f8ff;
+}
+
+.ejemplos h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-primario);
+    font-size: 2rem;
+}
+
+.grid-ejemplos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.ejemplo {
+    background: white;
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: var(--transicion);
+}
+
+.ejemplo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.ejemplo img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.ejemplo > div {
+    padding: 1.5rem;
+}
+
+.ejemplo h4 {
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+.ejemplo p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+/* Pie de página */
+.pie-pagina {
+    background-color: var(--color-texto);
+    color: white;
+    padding: 3rem 0;
+    margin-top: 3rem;
+}
+
+.pie-pagina .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pie-pagina p {
+    margin-bottom: 1.5rem;
+}
+
+.enlaces-footer {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.enlaces-footer a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transicion);
+}
+
+.enlaces-footer a:hover {
+    color: var(--color-accion);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow-y: auto;
+}
+
+.modal-contenido {
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.cerrar-modal:hover {
+    color: var(--color-texto);
+}
+
+/* Estilos para la página del mapa (mapa.html) */
+.mapa-interactivo {
+    margin: 2rem 0;
+}
+
+.mapa-interactivo h2 {
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.controles-mapa {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra);
+    margin-bottom: 1.5rem;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filtro-grupo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filtro-grupo label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-primario);
+}
+
+.selector {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    background-color: white;
+    transition: var(--transicion);
+}
+
+.selector:focus {
+    border-color: var(--color-primario);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.busqueda {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.busqueda input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    transition: var(--transicion);
+}
+
+.busqueda input:focus {
+    border-color: var(--color-primario);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.busqueda button {
+    padding: 0 1.5rem;
+}
+
+#mapa {
+    height: 600px;
+    width: 100%;
+    border-radius: var(--radio-borde);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--sombra);
+    z-index: 1;
+}
+
+.linea-tiempo {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra);
+    margin: 1.5rem 0;
+}
+
+.linea-tiempo h3 {
+    margin-bottom: 1rem;
+    color: var(--color-primario);
+}
+
+.epocas {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.epoca-btn {
+    padding: 0.7rem 1.5rem;
+    background-color: white;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: var(--transicion);
+    font-weight: 500;
+}
+
+.epoca-btn:hover {
+    background-color: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
+
+.epoca-btn.activo {
+    background-color: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
+
+.acciones-mapa {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+/* Popup personalizado */
+.leaflet-popup-content-wrapper {
+    border-radius: var(--radio-borde) !important;
+    box-shadow: var(--sombra) !important;
+}
+
+.leaflet-popup-content {
+    margin: 1rem !important;
+    min-width: 250px;
+}
+
+.popup-titulo {
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.popup-imagen {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: calc(var(--radio-borde) / 2);
+    margin-bottom: 0.5rem;
+}
+
+.popup-descripcion {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.popup-enlace {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--color-primario);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+.popup-enlace:hover {
+    text-decoration: underline;
+    color: var(--color-accion);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navegacion {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primario);
+        padding: 1rem;
+        box-shadow: var(--sombra);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
+    
+    .navegacion.mostrar {
+        transform: translateY(0);
+    }
+    
+    .navegacion ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .menu-movil {
+        display: block;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .filtros {
+        flex-direction: column;
+    }
+    
+    .busqueda {
+        flex-direction: column;
+    }
+    
+    .busqueda button {
+        width: 100%;
+    }
+    
+    #mapa {
+        height: 400px;
+    }
+    
+    .modal-contenido {
+        margin: 10% auto;
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .grid-caracteristicas, .grid-ejemplos {
+        grid-template-columns: 1fr;
+    }
+    
+    .ejemplo img {
+        height: 150px;
+    }
+}
